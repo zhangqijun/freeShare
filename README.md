@@ -1,5 +1,6 @@
 # Docker Compose and WordPress
 **Reference from [urre/wordpress-nginx-docker-compose](https://github.com/urre/wordpress-nginx-docker-compose)**
+
 [中文说明](README-cn.md)
 
 Use WordPress locally with Docker using [Docker compose](https://docs.docker.com/compose/)
@@ -13,17 +14,6 @@ This setup comes shipped with:
 + Volumes for `nginx`, `wordpress` and `mariadb`
 + [PhpMyAdmin](https://www.phpmyadmin.net/) - free and open source administration tool for MySQL and MariaDB
 + [Goaccess](https://goaccess.io/) - GoAccess is an open source real-time web log analyzer and interactive viewer that runs in a terminal in *nix systems or through your browser.
-+ wordpress plugin
-    - akismet 
-    - wp-githuber-md 
-    - cryout-serious-slider 
-    - kill-429 
-    - wp-mail-smtp 
-    - enlighter 
-    - limit-login-attempts-reloaded 
-    - wpqiniu 
-    - Poilive2d 
-    - xml-sitemap-feed 
 + CLI scripts
 	- Create a self signed SSL certificate for using https
 	- Trust certs in macOS System Keychain

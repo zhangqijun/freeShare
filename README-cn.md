@@ -11,17 +11,6 @@
 + volumes
 + [PhpMyAdmin](https://www.phpmyadmin.net/) - 网页编辑数据库
 + [Goaccess](https://goaccess.io/) - 实时可交互博客日志.
-+ wordpress 好用的插件
-    - akismet (反垃圾)
-    - wp-githuber-md (markdown编辑器)
-    - cryout-serious-slider 
-    - kill-429 (中国大陆访问429超时)
-    - wp-mail-smtp 
-    - enlighter (代码高亮)
-    - limit-login-attempts-reloaded 
-    - wpqiniu (七牛云存储)
-    - Poilive2d (看板娘)
-    - xml-sitemap-feed 
 + https脚本
 	- 创建https证书脚本
 	- 添加macOS系统信任
