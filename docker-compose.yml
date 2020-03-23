@@ -1,0 +1,78 @@
+version: '3.6'
+services:
+
+  wordpress:
+    image: wordpress:php7.3-fpm
+    container_name: wordpress
+    volumes:
+      - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./wordpress:/var/www/html
+    environment:
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_TABLE_PREFIX=wp_
+      - WORDPRESS_DB_HOST=mysql
+      - WORDPRESS_DB_USER=root
+      - WORDPRESS_DB_PASSWORD=password
+    depends_on:
+      - mysql
+    restart: always
+
+  mysql:
+    image: mariadb:latest
+    container_name: mysql
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=wordpress
+    restart: always
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./logs/nginx:/var/log/nginx
+      - ./wordpress:/var/www/html
+      - ./certs:/etc/ssl
+      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime
+    depends_on:
+      - wordpress
+    restart: always
+
+  pma:
+   image: phpmyadmin:2mb
+   container_name: phpmyadmin
+   build: ./phpmyadmin
+   environment: 
+    PMA_ARBITRARY: 1
+    PMA_HOST: mysql
+    PMA_USER: root
+    PMA_PASSWORD: password
+    MYSQL_ROOT_PASSWORD: password
+   restart: always
+   ports:
+     - "8080:80"
+   depends_on:
+     - mysql
+   volumes:
+     - ./src/sessions:/sessions 
+
+  goaccess:
+    image: gregyankovoy/goaccess
+    container_name: goaccess
+    restart: always
+    ports:
+      - "7889:7889"
+    environment:
+      LANG: zh_CN
+    depends_on:
+      - nginx
+    volumes:
+      - ./logs/nginx:/opt/log 
+      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime
