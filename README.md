@@ -29,6 +29,10 @@ This setup comes shipped with:
 	- Trust certs in macOS System Keychain
 	- Setup the local domain in your in `/etc/hosts`
 
+## img
+![](./img/home.png)
+![](./img/goaccess.png)
+
 ## Setup
 
 ### Requirements

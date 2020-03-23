@@ -1,5 +1,5 @@
 # 一键博客
-**感谢 [urre/wordpress-nginx-docker-compose](https://github.com/urre/wordpress-nginx-docker-compose)**  
+**感谢 [urre/wordpress-nginx-docker-compose](https://github.com/urre/wordpress-nginx-docker-compose)**
 
 使用docker-compose一键搭建博客 [Docker compose](https://docs.docker.com/compose/)
 
@@ -26,6 +26,10 @@
 	- 创建https证书脚本
 	- 添加macOS系统信任
 	- 设置本地host文件
+
+## 预览
+![](./img/home.png)
+![](./img/goaccess.png)
 
 ## 设置
 
